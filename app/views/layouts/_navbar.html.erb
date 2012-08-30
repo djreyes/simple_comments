@@ -9,10 +9,18 @@
           <%= link_to "SampleApp", root_path, class: "brand" %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "View Comments", comments_path  %></li>
               <li><%= link_to "Load Comments", new_comment_path  %></li>
             </ul>
+          
+            <ul class="nav pull-right">
+              <li><%= link_to "View Comments", comments_path  %></li>
+              <form class="navbar-form pull-right">
+                <%= render partial: "comments/filters" %>
+              </div>
+            </ul>
+            
           </div><!--/.nav-collapse -->
+          
         </div>
       </div>
     </div>
