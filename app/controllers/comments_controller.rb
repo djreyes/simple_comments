@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
       @comments = Comment.search(params)
       respond_to do |format|
         format.js   { render "comments/comments", locals: { comments: @comments } }
-        # format.html { redirect_to comments_path }
+        format.html { redirect_to comments_path }
       end
     else
       redirect_to comments_path, notice: "error"

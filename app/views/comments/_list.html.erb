@@ -2,10 +2,8 @@
 <% comments.each do |comment| %>
   <div class="row-fluid comment-block">
     <div class="span6">
-      <div class="<%= "hidden-#{comment.hidden}" %>">
-        <h5><%= comment.user.name %></h5>
-        <h4><%= comment.message %></h4>
-        <p><%= comment.fb_created_at %></p>
+      <div class="<%= "hidden-#{comment.hidden} comment-content" %>">
+        <%= render partial: "comments/comment", locals: { comment: comment } %>
       </div>
     </div>
 
