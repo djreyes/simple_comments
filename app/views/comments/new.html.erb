@@ -1,2 +1,4 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<%= form_tag comments_path, method: "post", class: "input-append" do %>
+  <%= text_field_tag(:url) %>
+  <%= submit_tag "Create from url", class: "btn btn-primary" %>
+<% end %>

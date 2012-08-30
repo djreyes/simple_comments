@@ -1,0 +1,11 @@
+<%= form_tag comments_path, method: "get", class: "input-append" do %>
+  <%= radio_button_tag "filter", "all", params[:filter] ||= "all" %>
+  <%= label_tag "filter_all", "All" %>
+  <%= radio_button_tag "filter", "unhidden", params[:filter] == "unhidden" %>
+  <%= label_tag "filter_unhidden", "Unhidden" %>
+  <%= radio_button_tag "filter", "hidden", params[:filter] == "hidden" %>
+  <%= label_tag "filter_hidden", "Hidden" %>
+  
+  <%= text_field_tag(:search_term) %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

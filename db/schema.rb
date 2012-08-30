@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830012522) do
+ActiveRecord::Schema.define(:version => 20120830031154) do
 
   create_table "comments", :force => true do |t|
     t.string   "facebook_id"
     t.string   "message"
-    t.boolean  "hidden"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "hidden",        :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "user_id"
+    t.datetime "fb_created_at"
   end
+
+  add_index "comments", ["facebook_id"], :name => "index_comments_on_facebook_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -28,5 +31,7 @@ ActiveRecord::Schema.define(:version => 20120830012522) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "users", ["facebook_id"], :name => "index_users_on_facebook_id"
 
 end
