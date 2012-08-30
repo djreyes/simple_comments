@@ -5,6 +5,7 @@ gem 'pg'
 gem 'quiet_assets'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
