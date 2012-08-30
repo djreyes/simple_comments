@@ -3,9 +3,9 @@ class CommentsController < ApplicationController
     @comments = Comment.search(params)
   end
 
-  def show
-    @comment = Comment.find(params[:id])
-  end
+  # def show
+  #   @comment = Comment.find(params[:id])
+  # end
 
   def new
     @comment = Comment.new
@@ -21,15 +21,17 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  # def edit
+  # end
   
   def update
     @comment = Comment.find(params[:id])
     
     if @comment.update_attributes(hidden: params[:hidden])
+      @comments = Comment.search(params)
       respond_to do |format|
-        format.html { redirect_to comments_path }
+        format.js   { render "comments/comments", locals: { comments: @comments } }
+        # format.html { redirect_to comments_path }
       end
     else
       redirect_to comments_path, notice: "error"

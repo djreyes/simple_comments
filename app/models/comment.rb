@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   
   belongs_to :user
   
+  default_scope order("fb_created_at DESC")
   scope :hidden, where(hidden: true)
   scope :unhidden, where(hidden: false)
   
