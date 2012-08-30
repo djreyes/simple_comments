@@ -1,0 +1,19 @@
+<h1><%= pluralize comments.count, "Comment" %>
+<% comments.each do |comment| %>
+  <div class="row-fluid comment-block">
+    <div class="span6">
+      <div class="<%= "hidden-#{comment.hidden}" %>">
+        <h5><%= comment.user.name %></h5>
+        <h4><%= comment.message %></h4>
+      </div>
+    </div>
+
+    <div class="span2 pull-right">
+      <% if comment.hidden %>
+        <%= button_to "Show", comment_path(id: comment.id, hidden: false), method: "put", class: "btn" %>
+      <% else %>
+        <%= button_to "Hide", comment_path(id: comment.id, hidden: true), method: "put", class: "btn btn-inverse" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

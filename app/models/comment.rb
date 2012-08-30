@@ -35,7 +35,6 @@ class Comment < ActiveRecord::Base
   end
   
   def self.search(params = {})
-    results_list = []
     case params[:filter]
     when "hidden"
       results_list = Comment.hidden
