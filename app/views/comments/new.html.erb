@@ -1,4 +1,1 @@
-<%= form_tag comments_path, method: "post", class: "input-append" do %>
-  <%= text_field_tag :url, "http://graph.facebook.com/10150670321429236?fields=comments", class: "input-xxlarge" %>
-  <%= submit_tag "Create from url", class: "btn btn-primary" %>
-<% end %>
+<%= render partial: "comments/load_comments" %>

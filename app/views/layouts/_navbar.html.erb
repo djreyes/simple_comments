@@ -9,7 +9,7 @@
           <%= link_to "SampleApp", root_path, class: "brand" %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Load Comments", new_comment_path  %></li>
+              <li><%= link_to "Load Comments", new_comment_path, class: "modal-load-comments", toggle: "modal"  %></li>
             </ul>
           
             <ul class="nav pull-right">
@@ -24,3 +24,13 @@
         </div>
       </div>
     </div>
+    
+<div class="modal hide" id="load-comments">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Load Comments from URL</h3>
+  </div>
+  <div class="modal-body">
+    <%= render partial: 'comments/load_comments' %>
+  </div>
+</div>
