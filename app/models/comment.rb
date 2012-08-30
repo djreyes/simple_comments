@@ -34,12 +34,18 @@ class Comment < ActiveRecord::Base
     end
   end
   
-  def self.search(search_term = nil)
-    if search_term.nil?
-      self.all
+  def self.search(params = {})
+    results_list = []
+    case params[:filter]
+    when "hidden"
+      results_list = Comment.hidden
+    when "unhidden"
+      results_list = Comment.unhidden
     else
-      self.select { |i| i.message =~ /#{search_term}/i }
+      results_list = Comment.all
     end
+    
+    results_list.select { |i| i.message =~ /#{params[:search_term]}/i }
   end
   
 end
